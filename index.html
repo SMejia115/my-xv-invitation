@@ -471,6 +471,29 @@
           bottom: 15px;
           right: 15px;
         }
+
+        /* --- INICIO DE LA CORRECCIÓN DEL CRONÓMETRO --- */
+        .countdown {
+          gap: 8px; /* Reducimos el espacio entre cajas */
+          flex-wrap: nowrap; /* ¡La clave! Prohíbe que se parta la línea */
+        }
+
+        .time-box {
+          padding: 10px; /* Hacemos el padding más pequeño */
+          flex-grow: 1; /* Permite que las cajas crezcan */
+          flex-shrink: 1; /* Permite que se encojan si es necesario */
+          flex-basis: 0; /* Asegura que se repartan el espacio */
+          min-width: 50px; /* Un mínimo de seguridad */
+        }
+
+        .time-number {
+          font-size: 1.3em; /* Hacemos los números un poco más pequeños */
+        }
+
+        .time-label {
+          font-size: 0.7em; /* Hacemos las etiquetas más pequeñas */
+        }
+        /* --- FIN DE LA CORRECCIÓN --- */
       }
 
       /* Responsividad de la lightbox */
@@ -652,7 +675,7 @@
 
       // Contador regresivo
       // !! RECUERDA CAMBIAR ESTA FECHA POR LA FECHA REAL DE LA FIESTA !!
-      const eventDate = new Date("2025-12-31T18:00:00").getTime();
+      const eventDate = new Date("2026-01-03T18:00:00").getTime();
 
       function updateCountdown() {
         const now = new Date().getTime();
