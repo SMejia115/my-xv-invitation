@@ -168,7 +168,7 @@
         text-transform: uppercase;
       }
 
-      /* Sección de mensaje */
+      /* Sección de mensaje (y estilo base para nuevas secciones) */
       .message-section {
         padding: 40px 20px;
         margin: 20px 15px;
@@ -191,6 +191,61 @@
         max-width: 600px;
         margin: 0 auto 15px;
       }
+
+      /* --- ESTILOS PARA LAS NUEVAS SECCIONES --- */
+      .section-icon {
+        font-size: 2.5em;
+        color: #d946a6;
+        margin-bottom: 10px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 800px;
+        margin: 20px auto;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-box h3 {
+        font-size: 1.5em;
+        color: #d946a6;
+        margin-bottom: 10px;
+      }
+
+      .info-box p {
+        font-size: 1.1em;
+        line-height: 1.6;
+      }
+
+      /* Estilo para los mapas */
+      .map-container {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(217, 70, 166, 0.3);
+        margin-top: 20px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 350px;
+        border: 0;
+      }
+
+      /* Responsividad para las nuevas secciones */
+      @media (max-width: 768px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* ------------------------------------------- */
 
       /* Galería de fotos */
       .gallery {
@@ -219,7 +274,7 @@
         overflow: hidden;
         box-shadow: 0 8px 20px rgba(217, 70, 166, 0.3);
         transition: transform 0.3s ease;
-        cursor: pointer; /* Para indicar que es clickeable */
+        cursor: pointer;
       }
 
       .photo-card:hover {
@@ -230,11 +285,10 @@
         width: 100%;
         height: 300px;
         object-fit: cover;
-        object-position: top; /* <--- ¡AQUÍ ESTÁ EL CAMBIO! */
+        object-position: top;
         display: block;
       }
 
-      /* Delay para animación escalonada de la galería */
       .photo-card.fade-in:nth-child(1) {
         transition-delay: 0.1s;
       }
@@ -253,32 +307,6 @@
         text-align: center;
         padding: 40px 20px;
         margin: 20px 15px;
-      }
-
-      .whatsapp-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: linear-gradient(135deg, #ffd4eb 0%, #ffc4e1 100%);
-        color: #d946a6;
-        padding: 18px 40px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-size: 1.2em;
-        font-weight: bold;
-        box-shadow: 0 6px 20px rgba(217, 70, 166, 0.4);
-        transition: all 0.3s ease;
-        border: 2px solid #d946a6;
-      }
-
-      .whatsapp-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(217, 70, 166, 0.6);
-        background: linear-gradient(135deg, #ffc4e1 0%, #ffb4d6 100%);
-      }
-
-      .whatsapp-icon {
-        font-size: 1.3em;
       }
 
       /* Footer */
@@ -311,7 +339,7 @@
         transform: scale(1.1);
       }
 
-      /* --- Estilos para la galería Lightbox --- */
+      /* Estilos para la galería Lightbox */
       .lightbox-overlay {
         position: fixed;
         top: 0;
@@ -322,7 +350,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2000; /* Asegura que esté por encima de todo */
+        z-index: 2000;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -344,7 +372,7 @@
 
       .lightbox-image {
         max-width: 100%;
-        max-height: 80vh; /* Ajusta la altura máxima para dejar espacio a los controles */
+        max-height: 80vh;
         display: block;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -371,10 +399,10 @@
       }
 
       .lightbox-prev {
-        left: -50px; /* Ajusta la posición para que no se pegue a la imagen */
+        left: -50px;
       }
       .lightbox-next {
-        right: -50px; /* Ajusta la posición para que no se pegue a la imagen */
+        right: -50px;
       }
 
       .lightbox-close {
@@ -398,6 +426,37 @@
       }
 
       /* Responsividad de la lightbox */
+      @media (max-width: 768px) {
+        .lightbox-image {
+          max-width: 90vw;
+          max-height: 70vh;
+        }
+
+        .lightbox-nav {
+          padding: 8px 12px;
+          font-size: 1.5em;
+          top: auto;
+          bottom: 10px;
+          transform: none;
+        }
+
+        .lightbox-prev {
+          left: 10px;
+          right: auto;
+        }
+
+        .lightbox-next {
+          right: 10px;
+          left: auto;
+        }
+
+        .lightbox-close {
+          top: 10px;
+          right: 10px;
+          padding: 8px 12px;
+          font-size: 1.5em;
+        }
+      }
 
       /* Responsividad mejorada (existente) */
       @media (max-width: 768px) {
@@ -472,65 +531,103 @@
           right: 15px;
         }
 
-        /* --- INICIO DE LA CORRECCIÓN DEL CRONÓMETRO --- */
         .countdown {
-          gap: 8px; /* Reducimos el espacio entre cajas */
-          flex-wrap: nowrap; /* ¡La clave! Prohíbe que se parta la línea */
+          gap: 8px;
+          flex-wrap: nowrap;
         }
 
         .time-box {
-          padding: 10px; /* Hacemos el padding más pequeño */
-          flex-grow: 1; /* Permite que las cajas crezcan */
-          flex-shrink: 1; /* Permite que se encojan si es necesario */
-          flex-basis: 0; /* Asegura que se repartan el espacio */
-          min-width: 50px; /* Un mínimo de seguridad */
+          padding: 10px;
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: 0;
+          min-width: 50px;
         }
 
         .time-number {
-          font-size: 1.3em; /* Hacemos los números un poco más pequeños */
+          font-size: 1.3em;
         }
 
         .time-label {
-          font-size: 0.7em; /* Hacemos las etiquetas más pequeñas */
-        }
-        /* --- FIN DE LA CORRECCIÓN --- */
-      }
-
-      /* Responsividad de la lightbox */
-      @media (max-width: 768px) {
-        .lightbox-image {
-          max-width: 90vw;
-          max-height: 70vh;
-        }
-
-        /* Estilos compartidos para botones nav en móvil */
-        .lightbox-nav {
-          padding: 8px 12px;
-          font-size: 1.5em;
-          top: auto;
-          bottom: 10px;
-          transform: none;
-        }
-
-        /* Posición específica para botón PREV */
-        .lightbox-prev {
-          left: 10px;
-          right: auto; /* Nos aseguramos que 'right' no afecte */
-        }
-
-        /* Posición específica para botón NEXT */
-        .lightbox-next {
-          right: 10px;
-          left: auto; /* Nos aseguramos que 'left' no afecte */
-        }
-
-        .lightbox-close {
-          top: 10px;
-          right: 10px;
-          padding: 8px 12px;
-          font-size: 1.5em;
+          font-size: 0.7em;
         }
       }
+
+      /* --- Estilos de la sección WhatsApp y el botón --- */
+
+      .whatsapp-section {
+        text-align: center;
+        padding: 40px 20px;
+        margin: 20px 15px;
+      }
+
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #ffd4eb 0%, #ffc4e1 100%);
+        color: #d946a6;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        box-shadow: 0 6px 20px rgba(217, 70, 166, 0.4);
+        transition: all 0.3s ease;
+        border: 2px solid #d946a6;
+      }
+
+      .whatsapp-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(217, 70, 166, 0.6);
+        background: linear-gradient(135deg, #ffc4e1 0%, #ffb4d6 100%);
+      }
+
+      .whatsapp-icon {
+        font-size: 1.3em;
+      }
+
+      /* --- Estilos responsivos (para @media (max-width: 480px)) --- */
+
+      @media (max-width: 480px) {
+        .whatsapp-section {
+          margin: 15px 10px;
+          padding: 30px 15px;
+        }
+
+        .whatsapp-btn {
+          padding: 15px 30px;
+          font-size: 1em;
+        }
+      }
+      /* --- Estilos para el nuevo botón "Ver Galería" --- */
+.gallery-view-more-btn {
+  background: linear-gradient(135deg, #ffd4eb 0%, #ffc4e1 100%);
+  color: #d946a6;
+  border: 2px solid #d946a6;
+  border-radius: 50px;
+  padding: 15px 35px;
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: "Georgia", serif; /* Aseguramos que use la misma fuente */
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(217, 70, 166, 0.4);
+  transition: all 0.3s ease;
+}
+
+.gallery-view-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(217, 70, 166, 0.6);
+  background: linear-gradient(135deg, #ffc4e1 0%, #ffb4d6 100%);
+}
+
+/* Responsividad para el botón de galería */
+@media (max-width: 480px) {
+  .gallery-view-more-btn {
+    font-size: 1em;
+    padding: 12px 30px;
+  }
+}
     </style>
   </head>
   <body>
@@ -548,8 +645,7 @@
     </audio>
 
     <header>
-      <h1 class="fade-in">✨ Luisa María ✨</h1>
-      <p class="subtitle fade-in">✨ Mis 15 Años ✨</p>
+      <h1 class="fade-in">✨ Mis XV Años ✨</h1>
       <p class="subtitle fade-in">Una nueva etapa comienza</p>
     </header>
 
@@ -597,6 +693,46 @@
       </p>
     </section>
 
+    <section class="message-section fade-in">
+      <h2>📅 Itinerario</h2>
+      <p style="font-size: 1.5em; margin-bottom: 30px">
+        <strong>3 de Enero, 2026</strong>
+      </p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>⛪ Misa</h3>
+          <p>
+            <strong>6:00 PM</strong><br />
+            Parroquia Santa Clara de Asís<br />
+            Leningrado II
+          </p>
+        </div>
+        <div class="info-box">
+          <h3>🎉 Evento</h3>
+          <p>
+            <strong>7:30 PM</strong><br />
+            Finca la Castalia
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="message-section fade-in">
+      <h2>👔 Dress Code</h2>
+      <div class="section-icon">👗</div>
+      <p>Ellas lindas y ellos guapos</p>
+      <p
+        style="
+          font-weight: bold;
+          color: #d946a6;
+          font-size: 1.2em;
+          margin-top: 15px;
+        "
+      >
+        Se reserva el color rosado solo para la cumpleañera🌸
+      </p>
+    </section>
+
     <section class="gallery">
       <h2 class="gallery-title fade-in">Momentos inolvidables 📸</h2>
       <div class="photo-grid">
@@ -612,6 +748,49 @@
         <div class="photo-card fade-in">
           <img class="gallery-img" src="image3.jpg" alt="Foto 4" />
         </div>
+        <div class="hidden-gallery" style="display: none;">
+      
+        <img class="gallery-img" src="image5.jpg" alt="Foto 5">
+        <!-- <img class="gallery-img" src="image6.jpg" alt="Foto 6">
+        <img class="gallery-img" src="image7.jpg" alt="Foto 7">
+        <img class="gallery-img" src="image8.jpg" alt="Foto 8"> -->
+        </div>
+      </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <button class="gallery-view-more-btn" id="open-gallery-btn">
+          Ver Galería Completa 📸
+        </button>
+      </div>
+      </section>
+    </section>
+
+    <section class="message-section fade-in">
+      <h2>📍 Ubicaciones</h2>
+
+      <h3 style="color: #d946a6; margin-top: 20px">
+        ⛪ Parroquia Santa Clara de Asís
+      </h3>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.8319179417845!2d-75.73728419999999!3d4.798892599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e387d90f66dfecf%3A0xb100f42b6af497ce!2sParroquia%20Santa%20Clara%20de%20As%C3%ADs!5e0!3m2!1ses!2sco!4v1763410176336!5m2!1ses!2sco"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+
+      <h3 style="color: #d946a6; margin-top: 30px">🎉 Finca la Castalia</h3>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.920361483744!2d-75.7234979!3d4.7836867000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e387d04498761f5%3A0x36cf1bd0d90a09fc!2sFinca%20La%20Castalia!5e0!3m2!1ses!2sco!4v1763410218406!5m2!1ses!2sco"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
       </div>
     </section>
 
@@ -654,6 +833,7 @@
         <button class="lightbox-nav lightbox-next" id="lightbox-next">▶</button>
       </div>
     </div>
+
     <script>
       // Animación de scroll
       const observerOptions = {
@@ -674,7 +854,7 @@
       });
 
       // Contador regresivo
-      // !! RECUERDA CAMBIAR ESTA FECHA POR LA FECHA REAL DE LA FIESTA !!
+      // !! FECHA ACTUALIZADA !!
       const eventDate = new Date("2026-01-03T18:00:00").getTime();
 
       function updateCountdown() {
@@ -772,52 +952,44 @@
       const lightboxClose = document.getElementById("lightbox-close");
       const lightboxPrev = document.getElementById("lightbox-prev");
       const lightboxNext = document.getElementById("lightbox-next");
-      const galleryImages = document.querySelectorAll(".gallery-img"); // Todas las imágenes de la galería
-      let currentIndex = 0; // Índice de la imagen actual en la galería
+      const galleryImages = document.querySelectorAll(".gallery-img");
+      let currentIndex = 0;
 
-      // Función para abrir la lightbox
       function openLightbox(index) {
         currentIndex = index;
         lightboxImage.src = galleryImages[currentIndex].src;
         lightbox.classList.add("active");
-        document.body.style.overflow = "hidden"; // Evita el scroll en el body
+        document.body.style.overflow = "hidden";
       }
 
-      // Función para cerrar la lightbox
       function closeLightbox() {
         lightbox.classList.remove("active");
-        document.body.style.overflow = ""; // Restaura el scroll en el body
+        document.body.style.overflow = "";
       }
 
-      // Función para mostrar la imagen anterior
       function showPrevImage() {
         currentIndex =
           (currentIndex - 1 + galleryImages.length) % galleryImages.length;
         lightboxImage.src = galleryImages[currentIndex].src;
       }
 
-      // Función para mostrar la imagen siguiente
       function showNextImage() {
         currentIndex = (currentIndex + 1) % galleryImages.length;
         lightboxImage.src = galleryImages[currentIndex].src;
       }
 
-      // Añadir evento de clic a cada imagen de la galería
       galleryImages.forEach((img, index) => {
         img.addEventListener("click", () => openLightbox(index));
       });
 
-      // Eventos para los botones de la lightbox
       lightboxClose.addEventListener("click", closeLightbox);
       lightboxPrev.addEventListener("click", showPrevImage);
       lightboxNext.addEventListener("click", showNextImage);
 
-      // Cerrar con la tecla 'Escape'
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && lightbox.classList.contains("active")) {
           closeLightbox();
         }
-        // Navegar con flechas izquierda/derecha
         if (e.key === "ArrowLeft" && lightbox.classList.contains("active")) {
           showPrevImage();
         }
@@ -826,13 +998,27 @@
         }
       });
 
-      // Cerrar haciendo clic fuera de la imagen (pero dentro del overlay)
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
           closeLightbox();
         }
       });
-      /* ------------------------------------------------------------------ */
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      /* --- INICIO: Lógica para el botón "Ver Galería" --- */
+      const openGalleryButton = document.getElementById("open-gallery-btn");
+      
+      if (openGalleryButton) {
+        openGalleryButton.addEventListener("click", () => {
+          openLightbox(0); // Abre la galería en la primera imagen (índice 0)
+        });
+      }
+      /* --- FIN: Lógica del botón --- */
     </script>
   </body>
 </html>
